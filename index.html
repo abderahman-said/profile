@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Abdo Rady - Frontend React.js | Next.js Developer</title>
+    <meta name="author" content="Abdo Rady">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description"
+        content="Frontend Developer with 2+ years of experience specializing in React.js and Next.js. Experienced in building scalable dashboards, multi-role platforms, and performance-optimized applications.">
+    <meta name="keywords"
+        content="Abdo Rady, Frontend Developer, React.js, Next.js, Web Developer, Portfolio, Software Engineer, JavaScript, UI/UX">
+    <link rel="canonical" href="https://your-domain.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:title" content="Abdo Rady - Frontend React.js | Next.js Developer">
+    <meta property="og:description"
+        content="Frontend Developer with 2+ years of experience specializing in React.js and Next.js. Building scalable dashboards and performance-optimized applications.">
+    <meta property="og:image" content="https://your-domain.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com">
+    <meta property="twitter:title" content="Abdo Rady - Frontend React.js | Next.js Developer">
+    <meta property="twitter:description"
+        content="Frontend Developer with 2+ years of experience specializing in React.js and Next.js. Building scalable dashboards and performance-optimized applications.">
+    <meta property="twitter:image" content="https://your-domain.com/assets/images/og-image.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Abdo Rady",
+      "url": "https://your-domain.com",
+      "jobTitle": "Frontend Developer",
+      "sameAs": [
+        "https://github.com/abderahman-said",
+        "https://www.linkedin.com/in/abdulrahman-elsaeid",
+        "https://wa.me/201552323225"
+      ],
+      "knowsAbout": ["React.js", "Next.js", "JavaScript", "Frontend Development", "Web Performance", "SEO"]
+    }
+    </script>
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/new_favicon.svg">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/new_favicon.svg">
+
+    <!-- Custom Animated Gradient Styles -->
+    <style>
+        .animated-gradient {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #072534 0%, #07C42C 50%, #072534 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            border-radius: 10px;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #gradient-container {
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            min-height: 500px;
+        }
+
+        #three-canvas-container {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            pointer-events: auto;
+            opacity: 1 !important;
+            filter: none !important;
+        }
+
+        .three-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+        }
+
+        /* Lottie Modal Styles */
+        .lottie-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lottie-modal.active {
+            display: flex;
+        }
+
+        .lottie-modal-content {
+            background: #111;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* GSAP Horizontal Scroll Styles */
+        .horizontal-scroll-wrapper {
+            /* overflow: hidden; */
+            width: 100%;
+        }
+
+        .projects-track {
+            display: flex;
+            gap: 40px;
+            will-change: transform;
+            padding-bottom: 50px;
+            align-items: center;
+        }
+
+        .project-card {
+            flex-shrink: 0;
+            width: 628px;
+            max-width: 90vw;
+        }
+
+        @media (max-width: 768px) {
+            .project-card {
+                width: 85vw;
+            }
+
+            .projects-track {
+                gap: 20px;
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+        }
+
+        .lottie-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .lottie-close-btn:hover {
+            background: #ff0000;
+            transform: scale(1.1);
+        }
+
+        #lottie-threejs-container {
+            width: 80vw;
+            height: 70vh;
+            position: relative;
+        }
+
+        #lottie-info {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #lottie-info a {
+            color: #4af;
+            text-decoration: none;
+        }
+
+        #lottie-scrubber {
+            width: 300px;
+            margin-top: 10px;
+        }
+
+        .lottie-modal-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .lottie-modal-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+
+        #three-canvas-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .animated-gradient,
+        .overlay {
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body class="counter-scroll">
+    <canvas class="cursor-trail d-none d-xl-block" id="trail"></canvas>
+
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-arrow-caret-right"></span>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
+
+    <!-- Preload -->
+    <div class="preloader overflow-hidden">
+        <div class="site-name"><span>ABDO RADY</span></div>
+        <div class="preloader-gutters">
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- /Preload -->
+
+    <main id="wrapper">
+
+        <!-- Left Bar -->
+        <div class="tf-left-bar">
+            <a class="btn-setting-color" data-bs-toggle="offcanvas" href="#settingColorMenu"><i
+                    class="icon-gear"></i></a>
+        </div>
+
+        <!-- Header -->
+        <header class="tf-header">
+            <div class="header-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-md-1">
+                            <a href="index.html" class="logo-site">
+                                <i class="icon icon-davies-logo"></i>
+                            </a>
+                        </div>
+                        <div class="col-7 d-none d-md-block">
+                            <div class="box-navigation">
+                                <ul class="nav-menu-main">
+                                    <li class="menu-item"><a href="#workScroll"
+                                            class="item-link link text-caption"><span>01
+                                                /</span>WORKS</a></li>
+                                    <li class="menu-item"><a href="#serviceScroll"
+                                            class="item-link link text-caption"><span>02
+                                                /</span>SERVICES</a>
+                                    </li>
+                                    <li class="menu-item"><a href="#aboutScroll"
+                                            class="item-link link text-caption"><span>03
+                                                /</span>ABOUT</a></li>
+                                    <li class="menu-item"><a href="#contactScroll"
+                                            class="item-link link text-caption"><span>04
+                                                /</span>CONTACT</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-2 d-none d-sm-block">
+                            <div class="header-contact">
+                                <a href="mailto:abdorady6500@gmail.com"
+                                    class="link text-caption">ABDORADY6500@GMAIL.COM</a>
+                                <p class="text-caption">
+                                    CUP <span class="clock"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-md-2 d-flex justify-content-end align-items-start">
+                            <button type="button" class="btn-mobile-menu open-mb-menu text-caption text-white link">
+                                <i class="icon icon-menu"></i>
+                                MENU
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+        <!-- Hero Banner -->
+        <div class="section-hero-v1">
+            <div class="overlay"></div>
+            <div class="bg-video">
+                <video class="" muted="" autoplay="" loop="" playsinline="">
+                    <source src="assets/images/video/corridor.webm" type="video/webm">
+                </video>
+                <div class="video-overlay"></div>
+                <div class="video-overlay-2"></div>
+                <div class="video-overlay-2"></div>
+            </div>
+            <div class="content-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="col-left">
+                                <ul class="tf-list vertical text-caption fw-medium ">
+                                    <li><a href="#" class="link effectFade fadeUp">REACT DEVELOPER</a></li>
+                                    <li><a href="#" class="link effectFade fadeUp">NEXT.JS EXPERT</a></li>
+                                    <li><a href="#" class="link effectFade fadeUp">FRONTEND ENGINEER</a></li>
+                                </ul>
+                                <div class="davies-large">
+                                    <div class="effectFade fadeRotateX">
+                                        ABDO<span class="text-primary">_</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-right">
+                                <div
+                                    class="top text-caption fw-medium d-flex justify-content-between align-items-center effectFade">
+                                    <p class="title text-has-dot ">
+                                        <span class="br-dot"></span>
+                                        AVAILABLE FOR WORK
+                                    </p>
+                                    <span>
+                                        © 2025
+                                    </span>
+                                </div>
+                                <div class="bot">
+                                    <p class="desc text-white-64 effectFade fadeRight view-visible">
+                                        I build high-performance web applications using React.js and Next.js.
+                                        Specializing in scalable architecture,
+                                        SEO optimization, and creating exceptional user experiences that drive business
+                                        growth.
+                                    </p>
+                                    <div class="effectFade fadeRight view-visible">
+                                        <a href="https://wa.me/201552323225" class="tf-btn ">
+                                            Contact Me
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero Banner -->
+        <!-- Select Work -->
+        <div class="section-selected-work flat-spacing pb-0" id="workScroll">
+            <div class="bg-img effectFade fadeUp">
+                <img loading="lazy" width="1440" height="720" src="assets/images/item/mountain.png" alt="Image">
+            </div>
+            <div class="content-wrap-1 wrap-list-btn">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-left mb-md-0">
+                                <p class="mini-title text-caption text-white-64 effectFade fadeUp">
+                                    SELECTED WORKS
+                                </p>
+                                <div class="position-relative effectFade fadeUp no-div">
+                                    <div class="slick-nav">
+                                        <!-- Clone 1 -->
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">WAPilot </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Rasayl </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Nawan </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">SKYS </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Arkit </p>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Faturti </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Al-Milhem </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Aqar Corp </p>
+                                        </div>
+                                        <!-- Clone 2 -->
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">WAPilot </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold"> Rasayl
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Nawan </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">SKYS </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Arkit </p>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Faturti </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Al-Milhem </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-slide text-display-2 fw-semibold">Aqar Corp </p>
+                                        </div>
+                                    </div>
+                                    <div class="image-award">
+                                        <img loading="lazy" width="80" height="80" src="assets/images/item/award.svg"
+                                            alt="Image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="col-right">
+                                <div class="slick-for">
+                                    <!-- Clone 1 -->
+                                    <div>
+                                        <a href="https://app.wapilot.net" target="_blank"
+                                            class="image effectFade fadeZoom">
+                                            <img loading="lazy" src="assets/images/WAPilot.png" alt="WAPilot">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://rasayl.nodejs.puiux.org/ar" target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/rasayel.png" alt="Rasayl">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://nawan.co/ar" target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/nawan.png" alt="Nawan">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://skys-front-puiux.vercel.app/en" target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/skys.png" alt="SKYS">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://arkit-three.vercel.app/ar" target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/arkit.png" alt="Arkit">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://faturti-mhr.com/login" target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/faturti.png" alt="Faturti">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://nodejs2.al-milhem-frontend.nodejs2.nodejs2.puiux.org/ar"
+                                            target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/almlhem.png" alt="Al-Milhem">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://aqarcorp.com" target="_blank" class="image">
+                                            <img loading="lazy" src="assets/images/aqar.png" alt="Aqar Corp">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrap-2">
+                <div class="container position-relative z-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul class="work-tag">
+                                <!-- Clone 1 -->
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            REACT 19
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            WHATSAPP API
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            NEXT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            MULTI-ROLE
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            SHADCN/UI
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            NEXT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            GSAP
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            NEXT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            HOTEL BOOKING
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            NEXT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            MEDIA TOOLS
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            REACT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            SAAS DASHBOARD
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            NEXT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            PORTFOLIO
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="group-btn">
+                                        <a href="#" class="tf-btn style-2">
+                                            NEXT.JS
+                                        </a>
+                                        <a href="#" class="tf-btn style-2">
+                                            REAL ESTATE
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="group-btn-slider">
+                                <div class="btn-nav-swiper cs-pointer text-caption fw-medium link nav-prev-swiper">
+                                    <i class="icon icon-arrow-long-left"></i>
+                                    PREV
+                                </div>
+                                <div class="btn-nav-swiper cs-pointer text-caption fw-medium link nav-next-swiper">
+                                    NEXT
+                                    <i class="icon icon-arrow-long-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="col-right">
+                                <p class="text-display-2 letter-space--3 fw-semibold">
+                                    20<span class="text-primary">25</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Select Work -->
+        <!-- Feature -->
+        <section class="section-feature flat-spacing tf-btn-swiper-main">
+            <div class="container">
+                <div class="s-header">
+                    <h2 class="text-display-2 fw-semibold letter-space--3 effectFade fadeUp">
+                        Featured Projects
+                    </h2>
+                    <a href="https://github.com/abderahman-said" class="tf-btn">
+                        VIEW GITHUB
+                    </a>
+                </div>
+                <div class="position-relative">
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="projects-track">
+                            <!-- item 1 -->
+                            <div class="project-card">
+                                <div class="wg-feature-v01 hover-img main-mouse-hover">
+                                    <a href="https://app.wapilot.net" target="_blank" class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/WAPilot.png"
+                                            alt="WAPilot">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">SaaS Platform</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://app.wapilot.net" target="_blank"
+                                                    class="link">WAPilot</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            React 19
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://app.wapilot.net" target="_blank" class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 2 -->
+                            <div class="project-card">
+                                <div class="wg-feature-v01 hover-img main-mouse-hover">
+                                    <a href="https://rasayl.nodejs.puiux.org/ar" target="_blank"
+                                        class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/rasayel.png"
+                                            alt="Rasayl">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">Multi-Role Platform</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://rasayl.nodejs.puiux.org/ar" target="_blank"
+                                                    class="link">Rasayl</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            Next.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://rasayl.nodejs.puiux.org/ar" target="_blank"
+                                            class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 3 -->
+                            <div class="project-card main-mouse-hover">
+                                <div class="wg-feature-v01 hover-img">
+                                    <a href="https://skys-front-puiux.vercel.app/en" target="_blank"
+                                        class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/skys.png"
+                                            alt="SKYS">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">Hotel Booking</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://skys-front-puiux.vercel.app/en" target="_blank"
+                                                    class="link">SKYS</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            Next.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://skys-front-puiux.vercel.app/en" target="_blank"
+                                            class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 4 -->
+                            <div class="project-card main-mouse-hover">
+                                <div class="wg-feature-v01 hover-img">
+                                    <a href="https://nawan.co/ar" target="_blank" class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/nawan.png"
+                                            alt="Nawan">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">E-Commerce</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://nawan.co/ar" target="_blank" class="link">Nawan</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            Next.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://nawan.co/ar" target="_blank" class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 5 -->
+                            <div class="project-card main-mouse-hover">
+                                <div class="wg-feature-v01 hover-img">
+                                    <a href="https://arkit-three.vercel.app/ar" target="_blank"
+                                        class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/arkit.png"
+                                            alt="Arkit">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">Architecture Docs</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://arkit-three.vercel.app/ar" target="_blank"
+                                                    class="link">Arkit</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            Next.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://arkit-three.vercel.app/ar" target="_blank"
+                                            class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 6 -->
+                            <div class="project-card main-mouse-hover">
+                                <div class="wg-feature-v01 hover-img">
+                                    <a href="https://faturti-mhr.com/login" target="_blank"
+                                        class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/faturti.png"
+                                            alt="Faturti">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">Invoicing SAAS</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://faturti-mhr.com/login" target="_blank"
+                                                    class="link">Faturti</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            React.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://faturti-mhr.com/login" target="_blank" class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 7 -->
+                            <div class="project-card main-mouse-hover">
+                                <div class="wg-feature-v01 hover-img">
+                                    <a href="https://nodejs2.al-milhem-frontend.nodejs2.nodejs2.puiux.org/ar"
+                                        target="_blank" class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/almlhem.png"
+                                            alt="Al-Milhem">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">Portfolio</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://nodejs2.al-milhem-frontend.nodejs2.nodejs2.puiux.org/ar"
+                                                    target="_blank" class="link">Al-Milhem</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            Next.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://nodejs2.al-milhem-frontend.nodejs2.nodejs2.puiux.org/ar"
+                                            target="_blank" class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- item 8 -->
+                            <div class="project-card main-mouse-hover">
+                                <div class="wg-feature-v01 hover-img">
+                                    <a href="https://aqarcorp.com" target="_blank" class="feature-image img-style">
+                                        <img loading="lazy" width="628" height="471" src="assets/images/aqar.png"
+                                            alt="Aqar Corp">
+                                    </a>
+                                    <div class="feature-content">
+                                        <div class="info">
+                                            <p class="tag text-white-64 letter-space--1">Real Estate</p>
+                                            <h5 class="name letter-space--2">
+                                                <a href="https://aqarcorp.com" target="_blank" class="link">Aqar
+                                                    Corp</a>
+                                            </h5>
+                                        </div>
+                                        <h5 class="price letter-space--2 text-primary">
+                                            Next.js
+                                        </h5>
+                                    </div>
+                                    <div class="tf-mouse">
+                                        <a href="https://aqarcorp.com" target="_blank" class="action tf-btn-2">
+                                            <i class="icon icon-arrow-long-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Feature -->
+
+        <!-- GSAP Horizontal Scroll Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    // Register ScrollTrigger plugin
+                    gsap.registerPlugin(ScrollTrigger);
+
+                    const track = document.querySelector('.projects-track');
+                    const cards = document.querySelectorAll('.project-card');
+
+                    if (track && cards.length > 0) {
+
+                        function transformScroll() {
+                            // Helper to recalculate values on resize
+                            const scrollWidth = track.scrollWidth;
+                            const viewportWidth = window.innerWidth;
+                            // Add buffer to ensure full visibility of last item
+                            const scrollDistance = scrollWidth - viewportWidth + 200;
+
+                            // Kill old ScrollTrigger if exists to avoid conflicts
+                            ScrollTrigger.getAll().forEach(t => t.kill());
+
+                            // Main horizontal scroll animation
+                            gsap.to(track, {
+                                x: -scrollDistance,
+                                ease: 'none',
+                                scrollTrigger: {
+                                    trigger: '.section-feature',
+                                    start: 'top top',
+                                    // Make scroll faster: Move horizontal distance in half the vertical scroll pixels
+                                    // This prevents "long scroll" feeling
+                                    end: () => `+=${scrollDistance * 0.5}`,
+                                    scrub: 1,
+                                    pin: true,
+                                    anticipatePin: 1,
+                                    invalidateOnRefresh: true
+                                }
+                            });
+                            // Re-apply card animations
+                            gsap.from(cards, {
+                                opacity: 0,
+                                scale: 0.8,
+                                y: 100,
+                                stagger: 0.1,
+                                duration: 0.8,
+                                ease: 'power3.out',
+                                scrollTrigger: {
+                                    trigger: '.section-feature',
+                                    start: 'top 80%',
+                                    toggleActions: 'play none none reverse'
+                                }
+                            });
+                            // Parallax effect on individual cards
+                            cards.forEach((card, index) => {
+                                gsap.to(card, {
+                                    y: -30 * (index % 2 === 0 ? 1 : -1),
+                                    scrollTrigger: {
+                                        trigger: card,
+                                        start: 'top bottom',
+                                        end: 'bottom top',
+                                        scrub: 2
+                                    }
+                                });
+                            });
+                        }
+
+                        // Initial setup
+                        // Force layout recalc
+                        track.style.display = 'flex';
+                        track.style.gap = '40px';
+                        track.style.width = 'max-content'; // Ensure track expands to fit children
+
+                        // Small delay to ensure CSS applied
+                        setTimeout(transformScroll, 100);
+
+                        // Responsive recalculation
+                        window.addEventListener('resize', () => {
+                            // Debounce or just simple reload of logic
+                            setTimeout(transformScroll, 200);
+                        });
+                    }
+                }
+            });
+        </script>
+        <!-- <div class="hover-wrap left main-mouse-hover">
+                        <div class="action tf-btn-2 nav-prev-swiper-2 tf-mouse mode-2">
+                            <i class="icon icon-arrow-long-left"></i>
+                        </div>
+                    </div>
+                    <div class="hover-wrap right main-mouse-hover">
+                        <div class="action tf-btn-2 nav-next-swiper-2 tf-mouse mode-2">
+                            <i class="icon icon-arrow-long-right"></i>
+                        </div>
+                    </div> -->
+        </div>
+        </div>
+        </section>
+        <!-- /Feature -->
+        <!-- Service -->
+        <section class="section-service-2 overflow-hidden flat-spacing" id="serviceScroll">
+            <div class="bg-image-list">
+                <div class="bg-image">
+                    <img loading="lazy" width="1440" height="938" src="assets/images/section/bg-service-1.jpg"
+                        alt="Image">
+                    <div class="img-item">
+                        <img loading="lazy" width="1440" height="938" src="assets/images/item/overlay.png" alt="Image">
+                    </div>
+                </div>
+                <div class="bg-image">
+                    <img loading="lazy" width="1440" height="938" src="assets/images/section/bg-service-2.jpg"
+                        alt="Image">
+                    <div class="img-item">
+                        <img loading="lazy" width="1440" height="938" src="assets/images/item/overlay.png" alt="Image">
+                    </div>
+                </div>
+                <div class="bg-image">
+                    <img loading="lazy" width="1440" height="938" src="assets/images/section/bg-service-3.jpg"
+                        alt="Image">
+                    <div class="img-item">
+                        <img loading="lazy" width="1440" height="938" src="assets/images/item/overlay.png" alt="Image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="s-header s-header-scroll">
+                    <h2 class="text-display-2 fw-semibold effectFade fadeUp">
+                        Services
+                    </h2>
+                </div>
+            </div>
+            <div class="container">
+                <div class="wrap-control position-relative">
+                    <div class="wg-service-2">
+                        <div class="main-image">
+                            <div class="image">
+                                <img loading="lazy" width="424" height="530" src="assets/images/section/service-1.jpg"
+                                    alt="Image">
+                            </div>
+                            <div class="action tf-btn-2 cs-pointer">
+                                <i class="icon icon-arrow-long-right"></i>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <h5 class="title">
+                                React.js Development
+                            </h5>
+                            <p class="desc">
+                                I build scalable React applications with modern architecture, state management, and
+                                optimized performance.
+                                Creating reusable components and implementing best practices for maintainable code.
+                            </p>
+                            <div class="br-line d-flex"></div>
+                            <ul class="tf-list vertical">
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Redux Toolkit & State Management
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> React Query & Data Fetching
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Component Architecture
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> React Hook Form & Validation
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Performance Optimization
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/201552323225" class="tf-btn">
+                                Contact Me
+                            </a>
+                        </div>
+                        <div class="image-simu">
+                        </div>
+                        <div class="image-2">
+                            <img loading="lazy" width="212" height="265" src="assets/images/section/service-2.jpg"
+                                alt="Image">
+                        </div>
+                    </div>
+                    <div class="wg-service-2">
+                        <div class="main-image">
+                            <div class="image">
+                                <img loading="lazy" width="424" height="530" src="assets/images/section/service-2.jpg"
+                                    alt="Image">
+                            </div>
+                            <div class="action tf-btn-2 cs-pointer">
+                                <i class="icon icon-arrow-long-right"></i>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <h5 class="title">
+                                Next.js Development
+                            </h5>
+                            <p class="desc">
+                                I develop high-performance Next.js applications with SSR/SSG, SEO optimization, and
+                                modern features.
+                                Building scalable full-stack solutions with excellent user experience.
+                            </p>
+                            <div class="br-line d-flex"></div>
+                            <ul class="tf-list vertical">
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Server-Side Rendering (SSR)
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Static Site Generation (SSG)
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> SEO & Performance Optimization
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> API Routes & Backend Integration
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Internationalization (i18n)
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/201552323225" class="tf-btn">
+                                Contact Me
+                            </a>
+                        </div>
+                        <div class="image-simu">
+                        </div>
+                        <div class="image-2">
+                            <img loading="lazy" width="212" height="265" src="assets/images/section/soe_performance.png"
+                                alt="Image">
+                        </div>
+                    </div>
+                    <div class="wg-service-2">
+                        <div class="main-image">
+                            <div class="image">
+                                <img loading="lazy" width="424" height="530"
+                                    src="assets/images/section/soe_performance.png" alt="Image">
+                            </div>
+                            <div class="action tf-btn-2 cs-pointer">
+                                <i class="icon icon-arrow-long-right"></i>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <h5 class="title">
+                                Technical SEO & Performance
+                            </h5>
+                            <p class="desc">
+                                I optimize web applications for maximum speed, accessibility, and search engine
+                                visibility.
+                                Implementing advanced techniques to ensure your project ranks high and loads fast.
+                            </p>
+                            <div class="br-line d-flex"></div>
+                            <ul class="tf-list vertical">
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Core Web Vitals Optimization
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Semantic HTML & Accessibility
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Advanced Caching Strategies
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> Mobile-First Optimization
+                                </li>
+                                <li class="letter-space--1">
+                                    <span class="text-primary">//</span> SEO Audits & Implementation
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/201552323225l" class="tf-btn">
+                                Contact Me
+                            </a>
+                        </div>
+                        <div class="image-simu">
+                        </div>
+                        <div class="image-2">
+                            <img loading="lazy" width="212" height="265" src="assets/images/section/soe_performance.png"
+                                alt="Image">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- /Service -->
+
+        <!-- About Me -->
+        <section class="section-about-me flat-spacing" id="aboutScroll">
+            <div class="s-img-bg">
+                <img loading="lazy" width="1440" height="906" src="assets/images/section/bg-about.jpg" alt="Background">
+            </div>
+            <div class="container position-relative z-5">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="col-left mb-lg-0">
+                            <div class="davies-video three-js-trigger" id="gradient-container">
+                                <div id="three-canvas-container" style="width: 100%; height: 100%;"></div>
+                                <div class="animated-gradient"></div>
+                                <div class="overlay v1"></div>
+                                <div class="overlay mark-1"></div>
+                                <div class="overlay mark-2"></div>
+                            </div>
+
+                            <div class="badget">
+                                <img loading="lazy" width="156" height="156" src="assets/images/item/badge-design.png"
+                                    alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 col-lg-6 offset-xl-2 col-xl-5">
+                        <div class="col-right">
+                            <h6 class="mini-title text-caption text-white-64">
+                                ABOUT ME
+                            </h6>
+                            <div class="text-color-change">
+                                <h5 class="desc letter-space--2 fw-normal ">
+                                    I'm a Frontend Developer specializing in React.js and Next.js, building scalable
+                                    dashboards, multi-role platforms,
+                                    and performance-optimized applications with strong focus on SEO and modern
+                                    architecture.
+                                </h5>
+                            </div>
+                            <div class="br-line"></div>
+                            <ul class="experience-list overflow-hidden">
+                                <li>Work Experience</li>
+                                <li class="effectFade fadeRight">
+                                    <p class="exp_name">React Developer at A-plus</p>
+                                    <p class="exp_year">05/2025 - Present</p>
+                                </li>
+                                <li class="effectFade fadeRight">
+                                    <p class="exp_name">React Developer at Awny</p>
+                                    <p class="exp_year">01/2024 - 09/2024</p>
+                                </li>
+                                <li class="effectFade fadeRight">
+                                    <p class="exp_name">React Developer at Deltawy</p>
+                                    <p class="exp_year">04/2023 - 01/2024</p>
+                                </li>
+                                <li class="effectFade fadeRight">
+                                    <p class="exp_name">React Developer at Puiux</p>
+                                    <p class="exp_year">05/2023 - Present</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Me -->
+        <!-- Tech Stack -->
+        <section class="section-tech-stack flat-spacing">
+            <div class="container">
+                <h6 class="mini-title text-caption text-white-64 text-center">
+                    TECH STACK
+                </h6>
+            </div>
+            <ul class="tech-stack-list main-action-active">
+                <li class="wg-tech btn-active active">
+                    <div class="tech_text letter-space--2">
+                        <p class="h1 fw-normal">React.js</p>
+                        <h6 class="fw-normal">95%</h6>
+                    </div>
+                    <div class="infiniteSlide_tech_main">
+                        <div class="infiniteSlide infiniteSlide_tech" data-clone="5">
+                            <!-- Clone 1 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">React.js</p>
+                                    <h6 class="process fw-normal">95%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    alt="React.js">
+                            </div>
+                            <!-- Clone 2 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">React.js</p>
+                                    <h6 class="process fw-normal">95%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    alt="Image">
+                            </div>
+                            <!-- Clone 3 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">React.js</p>
+                                    <h6 class="process fw-normal">95%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                                    alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="wg-tech btn-active">
+                    <div class="tech_text letter-space--2">
+                        <p class="h1 fw-normal">Next.js</p>
+                        <h6 class="fw-normal">93%</h6>
+                    </div>
+                    <div class="infiniteSlide_tech_main">
+                        <div class="infiniteSlide infiniteSlide_tech" data-clone="5">
+                            <!-- Clone 1 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">Next.js</p>
+                                    <h6 class="process fw-normal">93%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    alt="Next.js" style="filter: invert(1);">
+                            </div>
+                            <!-- Clone 2 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">Next.js</p>
+                                    <h6 class="process fw-normal">93%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    alt="Next.js" style="filter: invert(1);">
+                            </div>
+                            <!-- Clone 3 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">Next.js</p>
+                                    <h6 class="process fw-normal">93%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                                    alt="Next.js" style="filter: invert(1);">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="wg-tech btn-active">
+                    <div class="tech_text letter-space--2">
+                        <p class="h1 fw-normal">TypeScript</p>
+                        <h6 class="fw-normal">90%</h6>
+                    </div>
+                    <div class="infiniteSlide_tech_main">
+                        <div class="infiniteSlide infiniteSlide_tech" data-clone="5">
+                            <!-- Clone 1 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">TypeScript</p>
+                                    <h6 class="process fw-normal">90%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                    alt="TypeScript">
+                            </div>
+                            <!-- Clone 2 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">TypeScript</p>
+                                    <h6 class="process fw-normal">90%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                    alt="TypeScript">
+                            </div>
+                            <!-- Clone 3 -->
+                            <div class="app_name">
+                                <div class="tech_text letter-space--2">
+                                    <p class="h1 text">TypeScript</p>
+                                    <h6 class="process fw-normal">90%</h6>
+                                </div>
+                            </div>
+                            <div class="app_icon">
+                                <img loading="lazy" width="136" height="68"
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                                    alt="TypeScript">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!-- /Tech Stack -->
+
+        <!-- Award -->
+        <section class="section-award flat-spacing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 ms-auto">
+                        <div class="col-right">
+                            <h6 class="mini-title text-caption text-white-64">
+                                AWARDS
+                            </h6>
+                            <h5 class="fw-normal letter-space--2 text-color-change">
+                                Since 2020, my work has been honored by leading design platforms around the world. Each
+                                award represents a
+                                project
+                                where creativity, precision, and impact came together.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="col-left">
+                            <p class="desc text-white-64 mini-title">
+                                157 industry awards. <br>
+                                Bold ideas. Flawless execution.
+                            </p>
+                            <div dir="ltr" class="swiper tf-swiper" data-preview="3" data-tablet="3" data-mobile="3"
+                                data-mobile-sm="3" data-loop="true" data-auto="true" data-delay="1000" data-speed="1000"
+                                data-direction="vertical" data-space="4">
+                                <div class="swiper-wrapper">
+                                    <!-- item 1 -->
+                                    <div class="project-card">
+                                        <div class="award-item h4 letter-space--2">
+                                            Behance
+                                            <span class="text-body-1 letter-space--1">x28</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 2 -->
+                                    <div class="project-card">
+                                        <div class="award-item h4 letter-space--2">
+                                            Awwwards
+                                            <span class="text-body-1 letter-space--1">x41</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 3 -->
+                                    <div class="project-card">
+                                        <div class="award-item h4 letter-space--2">
+                                            CSS Design Awards
+                                            <span class="text-body-1 letter-space--1">x67</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 1 -->
+                                    <div class="project-card">
+                                        <div class="award-item h4 letter-space--2">
+                                            Behance
+                                            <span class="text-body-1 letter-space--1">x28</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 2 -->
+                                    <div class="project-card">
+                                        <div class="award-item h4 letter-space--2">
+                                            Awwwards
+                                            <span class="text-body-1 letter-space--1">x41</span>
+                                        </div>
+                                    </div>
+                                    <!-- item 3 -->
+                                    <div class="project-card">
+                                        <div class="award-item h4 letter-space--2">
+                                            CSS Design Awards
+                                            <span class="text-body-1 letter-space--1">x67</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-flip-image flat-spacing">
+                <div class="container">
+                    <div class="flip-image-list gsap-anime-2">
+                        <div class="flip-image">
+                            <a href="https://app.wapilot.net" target="_blank"><img loading="lazy" width="300"
+                                    height="300" src="assets/images/WAPilot.png" alt="WAPilot"></a>
+                        </div>
+                        <div class="flip-image">
+                            <a href="https://rasayl.nodejs.puiux.org/ar" target="_blank"><img loading="lazy" width="300"
+                                    height="300" src="assets/images/rasayel.png" alt="Rasayel"></a>
+                        </div>
+                        <div class="flip-image">
+                            <a href="https://nawan.co/ar" target="_blank"><img loading="lazy" width="300" height="300"
+                                    src="assets/images/nawan.png" alt="Nawan"></a>
+                        </div>
+                        <div class="flip-image">
+                            <a href="https://skys-front-puiux.vercel.app/en" target="_blank"><img loading="lazy"
+                                    width="300" height="300" src="assets/images/skys.png" alt="SKYS"></a>
+                        </div>
+                        <div class="flip-image">
+                            <a href="https://arkit-three.vercel.app/ar" target="_blank"><img loading="lazy" width="300"
+                                    height="300" src="assets/images/arkit.png" alt="Arkit"></a>
+                        </div>
+                        <div class="flip-image">
+                            <a href="https://faturti-mhr.com/login" target="_blank"><img loading="lazy" width="300"
+                                    height="300" src="assets/images/faturti.png" alt="Faturti"></a>
+                        </div>
+                        <div class="flip-image">
+                            <a href="https://app.wapilot.net" target="_blank"><img loading="lazy" width="300"
+                                    height="300" src="assets/images/WAPilot.png" alt="WAPilot"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Award -->
+
+        <!-- Footer -->
+        <footer class="tf-footer">
+            <div class="container">
+                <div class="br-line"></div>
+            </div>
+            <div class="footer-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="title text-has-dot text-caption fw-medium mb-md-0">
+                                <span class="br-dot"></span>
+                                WORKING GLOBALLY
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-2 col-md-1">
+                            <p class="footer-heading text-caption fw-medium text-white-64">
+                                SITEMAP
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <ul class="footer-menu-list mb-sm-0">
+                                <li><a href="#aboutScroll" class="link letter-space--2 h5">About</a></li>
+                                <li><a href="#workScroll" class="link letter-space--2 h5">Works</a></li>
+                                <li><a href="#serviceScroll" class="link letter-space--2 h5">Services</a></li>
+                                <li><a href="#contactScroll" class="link letter-space--2 h5">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-sm-2 col-md-1">
+                            <p class="footer-heading text-caption fw-medium text-white-64">
+                                SOCIALS
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <ul class="footer-menu-list mb-0">
+                                <li><a href="https://github.com/abderahman-said"
+                                        class="link letter-space--2 h5">GitHub</a>
+                                </li>
+                                <li><a href="https://linkedin.com/in/abdo-dev"
+                                        class="link letter-space--2 h5">LinkedIn</a></li>
+                                <li><a href="https://abdo.dev" class="link letter-space--2 h5">Portfolio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="img-agency">
+                        <img class="effectFade fadeZoom" loading="lazy" width="1293" height="269"
+                            src="assets/images/logo/agency.png" alt="Image">
+                    </div>
+                    <div class="bottom">
+                        <p class="text-nocopy text-caption fw-medium letter-space--1">
+                            © ABDULRAHMAN ELSAEID - FRONTEND DEVELOPER
+                        </p>
+                        <a href="#" class="action-go-top tf-link-icon link text-caption fw-medium letter-space--1">
+                            BACK TO TOP
+                            <i class="icon icon-arrow-long-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+    </main>
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site">
+                            <i class="icon icon-davies-logo"></i>
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            CLOSE
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb">
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#workScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">Works</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Works
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Works
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Works
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#aboutScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">About</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View About
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View About
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View About
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#serviceScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">Services</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Services
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Services
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Services
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#contactScroll" class="mb-menu-link text-display-1">
+                                        <span class="text">Contact</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Contact
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Contact
+                                                </p>
+                                                <p class="text-body-2 letter-space--1">
+                                                    <span class="text-primary">//</span> View Contact
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:abdorady6500@gmail.com" class="link text-caption">ABDORADY6500@GMAIL.COM</a>
+                            <p class="text-caption">
+                                CUP <span class="clock"></span>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="https://github.com/abderahman-said" class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                GITHUB
+                            </a>
+                            <a href="https://www.linkedin.com/in/abdelrahman-elsaeiddev"
+                                class="tf-link-icon text-caption link">
+                                <i class="icon icon-arrow-top-right"></i>
+                                LINKEDIN
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+    <!-- Setting Color -->
+    <div class="offcanvas offcanvas-end offcanvas-color" id="settingColorMenu">
+        <div class="offcanvas-content">
+            <span class="icon-close-popup" data-bs-dismiss="offcanvas">
+                <i class="icon-close"></i>
+            </span>
+            <div class="canvas-header">
+                <h3 class="fw-semibold">Configuration</h3>
+            </div>
+            <div class="canvas-body">
+                <h6 class="title fw-semibold">COLORS</h6>
+                <div class="settings-color list-choose">
+                    <button type="button" class="choose-item link-no-action active"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                    <button type="button" class="choose-item link-no-action"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Setting Color -->
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <!-- Three.js Module Animation -->
+    <!-- Lottie Scrubber hidden but functional for script if needed -->
+    <div id="lottie-info" style="display: none;">
+        <input id="lottie-scrubber" type="range" value="0">
+    </div>
+
+    <!-- Three.js Lottie Modal Script -->
+    <script src="assets/js/lottieData.js"></script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+        import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import lottie from 'https://cdn.jsdelivr.net/npm/lottie-web@5.13.0/+esm';
+
+        let renderer, scene, camera, controls;
+        let mesh, lottieAnimation;
+        let isInitialized = false;
+
+        async function initLottieSection() {
+            console.log("Initializing Lottie Section...");
+            const container = document.getElementById('three-canvas-container');
+            if (!container || isInitialized) return;
+
+            // Ensure container has visibility and clear old content
+            container.style.display = 'block';
+            container.innerHTML = '';
+
+            const width = container.clientWidth || 500;
+            const height = container.clientHeight || 500;
+
+            console.log(`Dimensions check: ${width}x${height}`);
+
+            // 1. Initialize Scene, Camera, and Renderer
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a0a); // Dark background matching page
+
+            camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+            camera.position.z = 2.5;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(width, height);
+            renderer.setAnimationLoop(animateLottieSection);
+            container.appendChild(renderer.domElement);
+
+            // 2. Setup OrbitControls
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 2.0;
+            controls.enableZoom = false;
+
+            // 3. Add Environment and Lighting (Matching working example better)
+            const environment = new RoomEnvironment();
+            const pmremGenerator = new THREE.PMREMGenerator(renderer);
+            scene.environment = pmremGenerator.fromScene(environment).texture;
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+            directionalLight.position.set(5, 5, 5);
+            scene.add(directionalLight);
+
+            // 4. Create Mesh with Fallback
+            const geometry = new RoundedBoxGeometry(1.2, 1.2, 1.2, 8, 0.2);
+            const fallbackMaterial = new THREE.MeshStandardMaterial({
+                color: 0x07C42C,
+                roughness: 0.1,
+                metalness: 0.5,
+                side: THREE.DoubleSide
+            });
+            mesh = new THREE.Mesh(geometry, fallbackMaterial);
+            scene.add(mesh);
+
+            // 5. Load Lottie (From Global Variable to bypass CORS)
+            try {
+                // Ensure data is loaded
+                if (typeof lottieLogoData === 'undefined') {
+                    throw new Error("Lottie Data not loaded from assets/js/lottieData.js");
+                }
+                const data = lottieLogoData;
+                console.log("Lottie Data Loaded for 3D model (from JS)");
+
+                const lottieContainer = document.createElement('div');
+                lottieContainer.style.width = data.w + 'px';
+                lottieContainer.style.height = data.h + 'px';
+                lottieContainer.style.position = 'absolute';
+                lottieContainer.style.top = '-9999px';
+                lottieContainer.style.left = '-9999px';
+                document.body.appendChild(lottieContainer);
+
+                const animation = lottie.loadAnimation({
+                    container: lottieContainer,
+                    animType: 'canvas',
+                    loop: true,
+                    autoplay: true,
+                    animationData: data,
+                    rendererSettings: {
+                        dpr: window.devicePixelRatio,
+                        preserveAspectRatio: 'xMidYMid meet'
+                    }
+                });
+
+                // 5. Create Animated Name Texture (Replacing Lottie)
+                const canvas = document.createElement('canvas');
+                canvas.width = 1024;
+                canvas.height = 1024;
+                const ctx = canvas.getContext('2d');
+
+                const texture = new THREE.CanvasTexture(canvas);
+                texture.colorSpace = THREE.SRGBColorSpace;
+
+                // Texture Animation State
+                let progress = 0;
+                let lastTime = 0;
+                const animationDuration = 2500;
+                const pauseDuration = 1500;
+
+                function drawFrame(currentProgress) {
+                    // Clear
+                    ctx.fillStyle = '#0a0a0a';
+                    ctx.fillRect(0, 0, 1024, 1024);
+
+                    // --- Border (Static) ---
+                    ctx.strokeStyle = '#07C42C';
+                    ctx.lineWidth = 40;
+                    ctx.strokeRect(40, 40, 944, 944);
+
+                    // Inner Glow
+                    ctx.shadowColor = '#07C42C';
+                    ctx.shadowBlur = 60;
+                    ctx.strokeRect(60, 60, 904, 904);
+
+                    // --- Text Setup ---
+                    ctx.font = 'bold 280px Arial, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.lineWidth = 4;
+
+                    const part1 = "AB";
+                    const part2 = "DO";
+                    const xCenter = 512;
+                    const yCenter = 512;
+                    const offset = 215;
+
+                    // --- Draw "AB" (White) ---
+                    ctx.shadowBlur = currentProgress > 0.8 ? 40 : 0;
+                    ctx.shadowColor = '#ffffff';
+
+                    ctx.strokeStyle = '#ffffff';
+                    if (currentProgress < 1) {
+                        const dashLen = 1500;
+                        ctx.setLineDash([dashLen, dashLen]);
+                        ctx.lineDashOffset = dashLen * (1 - currentProgress);
+                        ctx.strokeText(part1, xCenter - offset, yCenter);
+                    } else {
+                        ctx.setLineDash([]);
+                        ctx.strokeText(part1, xCenter - offset, yCenter);
+                    }
+
+                    ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, (currentProgress - 0.5) * 2)})`;
+                    ctx.fillText(part1, xCenter - offset, yCenter);
+
+
+                    // --- Draw "DO" (Green) ---
+                    ctx.shadowColor = '#07C42C';
+                    ctx.shadowBlur = currentProgress > 0.8 ? 40 : 0;
+
+                    ctx.strokeStyle = '#07C42C';
+                    if (currentProgress < 1) {
+                        const dashLen = 1500;
+                        ctx.setLineDash([dashLen, dashLen]);
+                        ctx.lineDashOffset = dashLen * (1 - currentProgress);
+                        ctx.strokeText(part2, xCenter + offset, yCenter);
+                    } else {
+                        ctx.setLineDash([]);
+                        ctx.strokeText(part2, xCenter + offset, yCenter);
+                    }
+
+                    ctx.fillStyle = `rgba(7, 196, 44, ${Math.max(0, (currentProgress - 0.5) * 2)})`;
+                    ctx.fillText(part2, xCenter + offset, yCenter);
+
+                    texture.needsUpdate = true;
+                }
+
+                function animateTexture(time) {
+                    if (!lastTime) lastTime = time;
+                    const delta = time - lastTime;
+
+                    const totalCycle = animationDuration + pauseDuration;
+                    const cycleTime = time % totalCycle;
+                    let currentP = 0;
+
+                    if (cycleTime < animationDuration) {
+                        currentP = cycleTime / animationDuration;
+                        currentP = 1 - Math.pow(1 - currentP, 3);
+                    } else {
+                        currentP = 1;
+                    }
+
+                    drawFrame(currentP);
+                    requestAnimationFrame(animateTexture);
+                }
+                requestAnimationFrame(animateTexture);
+
+                /* Old Static Function Removed */
+                function DEPRECATED_createNameTexture(text) {
+
+                    // Background with slight gradient
+                    const gradient = ctx.createLinearGradient(0, 0, 1024, 1024);
+                    gradient.addColorStop(0, '#1a1a1a');
+                    gradient.addColorStop(1, '#000000');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 1024, 1024);
+
+                    // Border (Card look)
+                    ctx.strokeStyle = '#07C42C';
+                    ctx.lineWidth = 40;
+                    ctx.strokeRect(40, 40, 944, 944);
+
+                    // Inner Glow
+                    ctx.shadowColor = '#07C42C';
+                    ctx.shadowBlur = 60;
+                    ctx.strokeRect(60, 60, 904, 904);
+
+                    // Text Style
+                    ctx.font = 'bold 300px Arial, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+
+                    // Text Shadow
+                    ctx.shadowColor = '#07C42C';
+                    ctx.shadowBlur = 40;
+
+                    // Draw Text
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillText(text, 512, 512);
+
+                    return canvas;
+                }
+
+                // Apply texture to existing mesh
+                mesh.material.map = texture;
+                mesh.material.color.set(0xffffff);
+                mesh.material.roughness = 0.3;
+                mesh.material.metalness = 0.6;
+                mesh.material.needsUpdate = true;
+
+            } catch (error) {
+                console.warn("Lottie loading failed, using fallback material:", error);
+            }
+
+            // 6. Interaction & Scroll (SAFE SCALING)
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                const triggerSection = document.querySelector(".section-about-me");
+                if (triggerSection) {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: triggerSection,
+                            start: "top center",
+                            end: "bottom center",
+                            scrub: 1.5,
+                            invalidateOnRefresh: true
+                        }
+                    })
+                        .to(mesh.scale, { x: 1.3, y: 1.3, z: 1.3, ease: "power2.inOut" })
+                        .to(camera.position, { z: 3.0, ease: "power2.inOut" }, 0);
+                }
+            }
+
+            window.addEventListener('resize', onLottieSectionResize);
+            isInitialized = true;
+            onLottieSectionResize();
+            console.log("Initialization complete fully.");
+        }
+
+        function onLottieSectionResize() {
+            const container = document.getElementById('three-canvas-container');
+            if (!container || !camera || !renderer) return;
+
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            if (width === 0 || height === 0) return;
+
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+        }
+
+        function animateLottieSection() {
+            if (controls) controls.update();
+            if (renderer && scene && camera) {
+                renderer.render(scene, camera);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            initLottieSection();
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
