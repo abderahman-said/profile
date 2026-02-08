@@ -698,7 +698,7 @@
     };
 
     var runAnimations = () => {
-        // serviceScroll(); // DISABLED: Heavy animation causing severe lag
+        serviceScroll(); // Re-enabled: Services section animation with optimizations
         stackElement();
         // scrollSmooth(); // DISABLED: Element #smooth-wrapper doesn't exist, causes performance overhead
         stackElement2();
