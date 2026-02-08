@@ -599,6 +599,7 @@
                 scrub: false,
                 markers: false,
                 anticipatePin: 1,
+                fastScrollEnd: true, // Performance: snap to end faster
                 onUpdate: (self) => {
                     if (isNavigating) {
                         return;
@@ -624,7 +625,7 @@
                             const oldStep = currentStep;
                             currentStep = targetStep;
                             const distance = Math.abs(targetStep - oldStep);
-                            const baseDuration = 1;
+                            const baseDuration = 0.8; // Reduced from 1 for snappier feel
                             const duration = baseDuration * Math.min(distance, 1.2);
 
                             tl.tweenTo(currentStep * stepLength * tl.duration(), {
@@ -697,9 +698,9 @@
     };
 
     var runAnimations = () => {
-        serviceScroll();
+        // serviceScroll(); // DISABLED: Heavy animation causing severe lag
         stackElement();
-        scrollSmooth();
+        // scrollSmooth(); // DISABLED: Element #smooth-wrapper doesn't exist, causes performance overhead
         stackElement2();
         gsapA2();
         changetext();

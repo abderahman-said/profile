@@ -147,6 +147,7 @@
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
         }
 
+
         /* GSAP Horizontal Scroll Styles */
         .horizontal-scroll-wrapper {
             /* overflow: hidden; */
@@ -168,15 +169,39 @@
         }
 
         @media (max-width: 768px) {
-            .project-card {
-                width: 85vw;
+            .horizontal-scroll-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* smooth scrolling on iOS */
+                display: flex;
+                padding-bottom: 20px;
+                /* Hide scrollbar for cleaner look */
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* IE 10+ */
+            }
+
+            .horizontal-scroll-wrapper::-webkit-scrollbar {
+                display: none;
+                /* Chrome Safari */
             }
 
             .projects-track {
                 gap: 20px;
-                padding-top: 100px;
-                padding-bottom: 100px;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                width: max-content;
+                /* Ensure track spans width of children */
+                transform: none !important;
+                /* Force disable GSAP transform */
             }
+
+            .project-card {
+                width: 85vw;
+            }
+
+           
         }
 
         .lottie-close-btn {
@@ -270,6 +295,90 @@
             pointer-events: none;
             z-index: 1;
         }
+
+        /* GSAP Horizontal Scroll Styles */
+        .horizontal-scroll-wrapper {
+            /* overflow: hidden; */
+            width: 100%;
+        }
+
+        .projects-track {
+            display: flex;
+            gap: 40px;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+            /* GPU acceleration */
+            padding-bottom: 50px;
+            align-items: center;
+        }
+
+        .project-card {
+            flex-shrink: 0;
+            width: 628px;
+            max-width: 90vw;
+            transform: translate3d(0, 0, 0);
+            /* GPU acceleration */
+        }
+
+        @media (max-width: 768px) {
+            .wg-feature-v01 .feature-content {
+                padding: 10px  ;
+            }
+.wg-feature-v01 .feature-content .tag {
+        font-size: 10px;
+        line-height: normal !important;
+        margin: 0;
+    }
+            .horizontal-scroll-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* smooth scrolling on iOS */
+                display: flex;
+                padding-bottom: 20px;
+                /* Hide scrollbar for cleaner look */
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* IE 10+ */
+            }
+
+            .horizontal-scroll-wrapper::-webkit-scrollbar {
+                display: none;
+                /* Chrome Safari */
+            }
+
+            .projects-track {
+                gap: 20px;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                width: max-content;
+                /* Ensure track spans width of children */
+                transform: none !important;
+                /* Force disable GSAP transform */
+            }
+
+            .project-card {
+                width: 85vw;
+                /* spacing for native scroll */
+            }
+
+            /* Ensure last card has margin */
+            .project-card:last-child {
+                margin-right: 20px;
+            }
+        }
+
+        /* Performance: GPU Acceleration for Animations */
+        .effectFade {
+            will-change: opacity, transform;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .section-feature,
+        .section-service-2,
+        .section-about-me {
+            contain: layout style;
+        }
     </style>
     <!-- Three.js Import Map -->
     <script type="importmap">
@@ -347,9 +456,6 @@
                         <div class="col-7 d-none d-md-block">
                             <div class="box-navigation">
                                 <ul class="nav-menu-main">
-                                    <li class="menu-item"><a href="#workScroll"
-                                            class="item-link link text-caption"><span>01
-                                                /</span>WORKS</a></li>
                                     <li class="menu-item"><a href="#serviceScroll"
                                             class="item-link link text-caption"><span>02
                                                 /</span>SERVICES</a>
@@ -444,249 +550,6 @@
             </div>
         </div>
         <!-- /Hero Banner -->
-        <!-- Select Work -->
-        <div class="section-selected-work flat-spacing pb-0" id="workScroll">
-            <div class="bg-img effectFade fadeUp">
-                <img loading="lazy" width="1440" height="720" src="assets/images/item/mountain.png" alt="Image">
-            </div>
-            <div class="content-wrap-1 wrap-list-btn">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="col-left mb-md-0">
-                                <p class="mini-title text-caption text-white-64 effectFade fadeUp">
-                                    SELECTED WORKS
-                                </p>
-                                <div class="position-relative effectFade fadeUp no-div">
-                                    <div class="slick-nav">
-                                        <!-- Clone 1 -->
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">WAPilot </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Rasayl </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Nawan </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">SKYS </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Arkit </p>
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Faturti </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Al-Milhem </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Aqar Corp </p>
-                                        </div>
-                                        <!-- Clone 2 -->
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">WAPilot </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold"> Rasayl
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Nawan </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">SKYS </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Arkit </p>
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Faturti </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Al-Milhem </p>
-                                        </div>
-                                        <div>
-                                            <p class="text-slide text-display-2 fw-semibold">Aqar Corp </p>
-                                        </div>
-                                    </div>
-                                    <div class="image-award">
-                                        <img loading="lazy" width="80" height="80" src="assets/images/item/award.svg"
-                                            alt="Image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="col-right">
-                                <div class="slick-for">
-                                    <!-- Clone 1 -->
-                                    <div>
-                                        <a href="https://app.wapilot.net" target="_blank"
-                                            class="image effectFade fadeZoom">
-                                            <img loading="lazy" src="assets/images/WAPilot.png" alt="WAPilot">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://rasayl.nodejs.puiux.org/ar" target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/rasayel.png" alt="Rasayl">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://nawan.co/ar" target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/nawan.png" alt="Nawan">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://skys-front-puiux.vercel.app/en" target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/skys.png" alt="SKYS">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://arkit-three.vercel.app/ar" target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/arkit.png" alt="Arkit">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://faturti-mhr.com/login" target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/faturti.png" alt="Faturti">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://nodejs2.al-milhem-frontend.nodejs2.nodejs2.puiux.org/ar"
-                                            target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/almlhem.png" alt="Al-Milhem">
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a href="https://aqarcorp.com" target="_blank" class="image">
-                                            <img loading="lazy" src="assets/images/aqar.png" alt="Aqar Corp">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content-wrap-2">
-                <div class="container position-relative z-5">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <ul class="work-tag">
-                                <!-- Clone 1 -->
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            REACT 19
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            WHATSAPP API
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            NEXT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            MULTI-ROLE
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            SHADCN/UI
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            NEXT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            GSAP
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            NEXT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            HOTEL BOOKING
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            NEXT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            MEDIA TOOLS
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            REACT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            SAAS DASHBOARD
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            NEXT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            PORTFOLIO
-                                        </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="group-btn">
-                                        <a href="#" class="tf-btn style-2">
-                                            NEXT.JS
-                                        </a>
-                                        <a href="#" class="tf-btn style-2">
-                                            REAL ESTATE
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="group-btn-slider">
-                                <div class="btn-nav-swiper cs-pointer text-caption fw-medium link nav-prev-swiper">
-                                    <i class="icon icon-arrow-long-left"></i>
-                                    PREV
-                                </div>
-                                <div class="btn-nav-swiper cs-pointer text-caption fw-medium link nav-next-swiper">
-                                    NEXT
-                                    <i class="icon icon-arrow-long-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="col-right">
-                                <p class="text-display-2 letter-space--3 fw-semibold">
-                                    20<span class="text-primary">25</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Select Work -->
         <!-- Feature -->
         <section class="section-feature flat-spacing tf-btn-swiper-main">
             <div class="container">
@@ -928,7 +791,6 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                    // Register ScrollTrigger plugin
                     gsap.registerPlugin(ScrollTrigger);
 
                     const track = document.querySelector('.projects-track');
@@ -936,15 +798,14 @@
 
                     if (track && cards.length > 0) {
 
-                        function transformScroll() {
-                            // Helper to recalculate values on resize
+                        // Use gsap.matchMedia() for robust responsive handling
+                        let mm = gsap.matchMedia();
+
+                        // Desktop: Enable ScrollTrigger
+                        mm.add("(min-width: 769px)", () => {
                             const scrollWidth = track.scrollWidth;
                             const viewportWidth = window.innerWidth;
-                            // Add buffer to ensure full visibility of last item
                             const scrollDistance = scrollWidth - viewportWidth + 200;
-
-                            // Kill old ScrollTrigger if exists to avoid conflicts
-                            ScrollTrigger.getAll().forEach(t => t.kill());
 
                             // Main horizontal scroll animation
                             gsap.to(track, {
@@ -953,16 +814,16 @@
                                 scrollTrigger: {
                                     trigger: '.section-feature',
                                     start: 'top top',
-                                    // Make scroll faster: Move horizontal distance in half the vertical scroll pixels
-                                    // This prevents "long scroll" feeling
                                     end: () => `+=${scrollDistance * 0.5}`,
-                                    scrub: 1,
+                                    scrub: 0.5, // Reduced for snappier response
                                     pin: true,
                                     anticipatePin: 1,
-                                    invalidateOnRefresh: true
+                                    invalidateOnRefresh: true,
+                                    fastScrollEnd: true // Performance optimization
                                 }
                             });
-                            // Re-apply card animations
+
+                            // Card animations
                             gsap.from(cards, {
                                 opacity: 0,
                                 scale: 0.8,
@@ -976,35 +837,94 @@
                                     toggleActions: 'play none none reverse'
                                 }
                             });
-                            // Parallax effect on individual cards
+
+                            // Parallax (reduced intensity for performance)
                             cards.forEach((card, index) => {
                                 gsap.to(card, {
-                                    y: -30 * (index % 2 === 0 ? 1 : -1),
+                                    y: -20 * (index % 2 === 0 ? 1 : -1), // Reduced from -30
                                     scrollTrigger: {
                                         trigger: card,
                                         start: 'top bottom',
                                         end: 'bottom top',
-                                        scrub: 2
+                                        scrub: 1, // Reduced from 2 for better performance
+                                        fastScrollEnd: true
                                     }
                                 });
                             });
-                        }
 
-                        // Initial setup
-                        // Force layout recalc
-                        track.style.display = 'flex';
-                        track.style.gap = '40px';
-                        track.style.width = 'max-content'; // Ensure track expands to fit children
+                            return () => {
+                                // Cleanup when switching to mobile
+                                gsap.set(track, { clearProps: "all" });
+                                gsap.set(cards, { clearProps: "all" });
+                            };
+                        });
 
-                        // Small delay to ensure CSS applied
-                        setTimeout(transformScroll, 100);
-
-                        // Responsive recalculation
-                        window.addEventListener('resize', () => {
-                            // Debounce or just simple reload of logic
-                            setTimeout(transformScroll, 200);
+                        // Mobile: Native Scroll (GSAP does nothing, CSS handles it)
+                        mm.add("(max-width: 768px)", () => {
+                            // Ensure no residual GSAP styles interfere with native scroll
+                            gsap.set(track, { clearProps: "all" });
+                            gsap.set(cards, { clearProps: "all" });
                         });
                     }
+                }
+            });
+        </script>
+        <!-- Mobile Slider Enhancement Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Fix mobile slider animation issues
+                const isMobile = window.innerWidth < 768;
+                const wrapper = document.querySelector('.horizontal-scroll-wrapper');
+                const track = document.querySelector('.projects-track');
+                const cards = document.querySelectorAll('.project-card');
+
+                if (isMobile && wrapper && track && cards.length > 0) {
+                    // Add scroll-snap behavior
+                    wrapper.style.scrollSnapType = 'x mandatory';
+
+                    // Set proper card dimensions for mobile
+                    cards.forEach(card => {
+                        card.style.scrollSnapAlign = 'start';
+                        card.style.flex = '0 0 auto';
+                        card.style.width = '280px';
+                        card.style.minWidth = '280px';
+                        card.style.transform = 'none'; // Disable GSAP transform
+                    });
+
+                    // Adjust for very small screens
+                    if (window.innerWidth < 480) {
+                        cards.forEach(card => {
+                            card.style.width = '260px';
+                            card.style.minWidth = '260px';
+                        });
+                    }
+
+                    // Disable GSAP ScrollTrigger on mobile for better performance
+                    if (typeof ScrollTrigger !== 'undefined') {
+                        ScrollTrigger.getAll().forEach(trigger => {
+                            if (trigger.trigger === '.section-feature') {
+                                trigger.kill();
+                            }
+                        });
+                    }
+
+                    // Reset track transform
+                    track.style.transform = 'none';
+
+                    // Add smooth scroll behavior
+                    let isScrolling = false;
+                    wrapper.addEventListener('scroll', function () {
+                        if (!isScrolling) {
+                            window.requestAnimationFrame(function () {
+                                // Optional: Add scroll-based animations here
+                                isScrolling = false;
+                            });
+                            isScrolling = true;
+                        }
+                    });
+
+                    // Touch-friendly scrolling handled by native CSS scroll-snap
+                    // Removed custom touch handlers to prevent conflict with browser native scroll
                 }
             });
         </script>
@@ -1018,9 +938,7 @@
                             <i class="icon icon-arrow-long-right"></i>
                         </div>
                     </div> -->
-        </div>
-        </div>
-        </section>
+        <!-- /Feature -->
         <!-- /Feature -->
         <!-- Service -->
         <section class="section-service-2 overflow-hidden flat-spacing" id="serviceScroll">
@@ -1555,7 +1473,6 @@
                         <div class="col-6 col-sm-4 col-md-3">
                             <ul class="footer-menu-list mb-sm-0">
                                 <li><a href="#aboutScroll" class="link letter-space--2 h5">About</a></li>
-                                <li><a href="#workScroll" class="link letter-space--2 h5">Works</a></li>
                                 <li><a href="#serviceScroll" class="link letter-space--2 h5">Services</a></li>
                                 <li><a href="#contactScroll" class="link letter-space--2 h5">Contact</a></li>
                             </ul>
@@ -1615,26 +1532,7 @@
                     </div>
                     <div class="canvas_center">
                         <ul class="nav-ul-mb">
-                            <li>
-                                <div class="item close-mb-menu">
-                                    <a href="#workScroll" class="mb-menu-link text-display-1">
-                                        <span class="text">Works</span>
-                                        <div class="infiniteSlide_text_main">
-                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
-                                                <p class="text-body-2 letter-space--1">
-                                                    <span class="text-primary">//</span> View Works
-                                                </p>
-                                                <p class="text-body-2 letter-space--1">
-                                                    <span class="text-primary">//</span> View Works
-                                                </p>
-                                                <p class="text-body-2 letter-space--1">
-                                                    <span class="text-primary">//</span> View Works
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
+
                             <li>
                                 <div class="item close-mb-menu">
                                     <a href="#aboutScroll" class="mb-menu-link text-display-1">
